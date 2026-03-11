@@ -1,0 +1,149 @@
+body{
+    font-family: cambria, cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+}
+    table.header {
+        background-color: #282b30;
+        width: 100%;
+        border-collapse: collapse;
+
+    td {
+        padding: 0;
+        text-align: center;
+        width: 20%;
+    }
+
+    a {
+        display: block;
+        padding: 15px 0;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        background-color: #393645;
+        cursor: pointer;
+    }
+
+    a:active {
+        background-color: #7289da;
+    }
+}
+div{
+    width: 100%;
+    height: auto;
+}
+.img-col{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    display: block;
+}
+.desc-col {
+    text-align: center;
+    width: 50%;
+}
+.bulbasaurdesc-col{
+        text-align: center;
+        width: 100%;
+}
+.pokemon-container {
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
+}
+.bgcharmander {
+    background-color: #fe9441;
+}
+.bgsquirtle {
+    background-color: #93c8d0;
+}
+.bgbulbasaur {
+    background-color: #83ba36;
+}
+    table{
+        padding-top: 20px;
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+    }
+    td {
+        vertical-align: middle;
+    }
+
+    button{
+        width: 250px;
+        height: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        background-color: #282b30;
+        color: white;
+        border-radius: 30px;
+        border: 2px solid #282b30;
+
+    }
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn-type {
+    background-color: #282b30;
+}
+
+.btn-fire {
+    background-color: #f24405;
+}
+
+.btn-water {
+    background-color: #2389da;
+}
+.btn-grass {
+    background-color: #107800;
+    display: inline-block;
+}
+
+.btn-poison {
+    background-color: #7b63ad;
+    display: inline-block;
+}
+
+
+.stats-table {
+    margin: 20px auto;
+    text-align: left;
+    border-collapse: collapse;
+    font-family: cursive;
+    width:50%
+}
+
+.stats-table td {
+    padding: 2px 5px;
+    width:50%
+}
+
+.stat-label {
+    text-align: right;
+    font-weight: bold;
+}
+.label2 {
+    text-align: left;
+    font-weight: bold;
+}
+
+.stat-top {
+    vertical-align: top;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer-text {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0;
+    margin: 0 auto 10px auto;
+    background-color: white;
+}
