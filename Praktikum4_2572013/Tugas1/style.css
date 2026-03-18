@@ -1,0 +1,60 @@
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    height: 1500px;
+    font-family: Tahoma;
+}
+header{
+    background-color: #1a237e;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    p{
+        font-size: 15px;
+    }
+}
+nav{
+    background-color: #ffca28;
+    position: sticky; top:0;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center; /* ul di tengah */
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 20px;
+}
+
+nav ul li a:hover {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+nav ul li a:active{
+    background-color: #fff;
+    color:#000
+}
+
+.artikel-konten{
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+.teks-rahasia{
+    visibility: hidden;
+}
