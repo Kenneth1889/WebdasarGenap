@@ -1,0 +1,219 @@
+<!-- 2572013 - Kenneth Ansell -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - 2572013</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            display: grid;
+            grid-template-areas:
+            "h h h"
+            "tn tn tn"
+            "f al p"
+            "footer footer footer";
+            grid-template-columns: 180px 1fr 220px;
+            grid-template-rows: auto auto 1fr auto;
+            min-height: 100vh;
+        }
+        header{
+            grid-area:h;
+            background-color: #1a3c5e;
+            color:white;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 30px;
+        }
+        .header h1+p{
+            align-items: center;
+        }
+        .topnav{
+            grid-area:tn;
+            background-color: #2c5f8a;
+            display: flex;
+            justify-content: center;
+        }
+        .topnav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+        }
+        .topnav a:hover {
+            background-color: #1a3c5e;
+        }
+        .filter{
+            grid-area: f;
+            background-color: #f0f4f8;
+            border-right:1px solid #ccc;
+            padding: 20px;
+            
+        }
+        .filter li{
+                padding: 10px;
+                border-radius: 6px;
+                list-style-type: none;
+            }
+        .filter li:hover{
+            background-color: #dce8f5;
+        }
+        .agenda-list {
+            grid-area: al;
+            background-color: white;
+            padding: 20px;
+        }
+        .agenda-card {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 16px;
+            margin-bottom: 14px;
+        }
+        .tanggal {
+            color: #888;
+            font-size: 0.8rem;
+        }
+        .kategori {
+            border-radius: 20px;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .agenda-card p{
+            padding-bottom: 10px;
+        }
+        .kategori.seminar {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+        .kategori.workshop {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        .kategori.lomba {
+            background-color: #fef9c3;
+            color: #ca8a04;
+        }
+        .pengumuman {
+            grid-area: p;
+            background-color: #fffbeb;
+            border-left: 1px solid #fcd34d;
+            padding: 20px;
+        }
+        .pengumuman li {
+            padding: 10px 0;
+            border-bottom: 1px solid #fde68a;
+            list-style: none;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #1a3c5e;
+            color: #94a3b8;
+            text-align: center;
+            padding: 16px;
+        }
+        @media (max-width: 900px) {
+            body {
+                grid-template-columns: 180px 1fr;
+                grid-template-areas:
+                "h h"
+                "tn tn"
+                "f al"
+                "footer footer";
+            }
+            .pengumuman {
+                display: none;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                "h"
+                "tn"
+                "al"
+                "footer";
+            }
+            .topnav {
+                flex-direction: column;
+            }
+            .filter {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AgendaKampus</h1>
+        <p>Portal Kegiatan Mahasiswa</p>
+    </header>
+
+    <nav class="topnav">
+        <a href="#">Beranda</a>
+        <a href="#">Agenda</a>
+        <a href="#">Organisasi</a>
+        <a href="#">Pengumuman</a>
+        <a href="#">Kontak</a>
+    </nav>
+    <aside class="filter">
+        <h3>Filter Kategori</h3>
+        <ul>
+            <li>Seminar</li>
+            <li>Workshop</li>
+            <li>Lomba</li>
+            <li>Olahraga</li>
+            <li>Seni & Budaya</li>
+        </ul>
+    </aside>
+
+    <main class="agenda-list">
+        <!-- Salin minimal 4 div berclass agenda-card -->
+        <div class="agenda-card">
+            <span class="tanggal">12 Apr 2026</span>
+            <h3>Seminar AI & Future of Work</h3>
+            <p>Aula Gedung A, 09.00 - 12.00 WIB</p>
+            <span class="kategori seminar">Seminar</span>
+        </div>
+        <div class="agenda-card">
+            <span class="tanggal">12 Apr 2026</span>
+            <h3>Workshop Desain Thinking</h3>
+            <p>Lab Advanced 3, 09.00 - 12.00 WIB</p>
+            <span class="kategori workshop">Workshop</span>
+        </div>
+        <div class="agenda-card">
+            <span class="tanggal">13 Apr 2026</span>
+            <h3>Lomba Programming</h3>
+            <p>Gedung B, 14.00 - 17.00 WIB</p>
+            <span class="kategori lomba">Lomba</span>
+        </div>
+        <div class="agenda-card">
+            <span class="tanggal">14 Apr 2026</span>
+            <h3>Lomba Web Design</h3>
+            <p>H04A06, 08.00 - 13.00 WIB</p>
+            <span class="kategori lomba">Lomba</span>
+        </div>
+    </main>
+
+    <aside class="pengumuman">
+        <h3>Pengumuman Terbaru</h3>
+        <ul>
+            <li>Pendaftaran UKM dibuka</li>
+            <li>Libur Nasional 14 April</li>
+            <li>Beasiswa Prestasi 2026</li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 [2572013] [Kenneth Ansell]. All rights reserved.</p>
+    </footer>
+</body>
+</html>
