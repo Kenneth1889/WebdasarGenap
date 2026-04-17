@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECommerce - 2572013</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script>
+    function showToast() {
+    const toastEl = document.getElementById('notifToast'); // sesuaikan ID-nya
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+    } 
+</script>
+<style>
+    .hero-section {
+            padding: 100px 0;
+            height: 500px;
+            background-image: linear-gradient(to bottom right, rgba(112, 141, 250), rgba(166, 120, 228));
+        }
+    .carrousel-inner{
+        height: 400px;
+    }
+    .object-fit-cover{
+        height: 400px;
+        object-fit: cover;
+    }
+    .card-img-small {
+        margin: auto;
+        max-width: 220px;
+        max-height: 220px;
+        object-fit: cover;
+    }
+    .card:hover 
+    { transform: translateY(-5px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); }
+
+    .small-carousel-img {
+        max-width: 220px;
+        max-height: 220px;
+        object-fit: cover;
+    }
+    .card{
+        max-height: 500px;
+    }
+    .card-description-scroll {
+        max-height: 90px;
+        overflow-y: auto;
+    }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <span class="bg-info rounded-circle d-inline-flex justify-content-center align-items-center" style="width:32px;height:32px;">&#9881;</span>
+                <span class="ms-2">TechStore</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Handphone</a></li>
+                            <li><a class="dropdown-item" href="#">Tablet</a></li>
+                            <li><a class="dropdown-item" href="#">PC</a></li>
+                            <li><a class="dropdown-item" href="#">Macbook</a></li>
+                            <li><a class="dropdown-item" href="#">Mac Mini</a></li>
+                            <li><a class="dropdown-item" href="#">Headphone</a></li>
+                            <li><a class="dropdown-item" href="#">Iphone</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Washing Machine</a></li>
+                            <li><a class="dropdown-item" href="#">Sink</a></li>
+                            <li><a class="dropdown-item" href="#">Stove</a></li>
+                            <li><a class="dropdown-item" href="#">Microwave</a></li>
+                            <li><a class="dropdown-item" href="#">Iron</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-info btn-sm"type="button"><i class="bi bi-bell"></i> Enable Notifications</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="hero-section text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <div class="badge text-bg-light">New Arrivals 2025</div>
+                    <h1 class="fw-bold pt-3">Upgrade Your Tech.</h1>
+                    <h1 class="fw-bold">Upgrade Your Life.</h1>
+                    <p class="fw-light">The Latest gadgets, best prices and free delivery on all orders above Rp. 500.000</p>
+                    <button class="btn btn-light p-2 px-3 me-2 fw-bold">Shop Now</button>
+                    <button class="btn btn-outline-light p-2 px-3">Learn More</button>
+                </div>
+                <div class="col-7 d-flex justify-content-center align-items-center font ">
+                    <h1 class="text-center" style="font-size: 7rem; line-height: 1;">💻</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="fw-bold mt-4 pb-3" style="font-size: 20px;">Promo Terbaru</div>
+        <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner bg-warning text-center align-items-center justify-content-center">
+    <div class="carousel-item active">
+        <div class="d-flex flex-column justify-content-center align-items-center text-center" style="height: 400px">
+            <div class="icon-carousel" style="font-size: 9rem">📱</div>
+            <div class="mt-3">
+                <h2 class="fw-semibold">Handphone - Flash Sale Tiap Senin dan Selasa</h2>
+                <p class="mb-0">Apple, Samsung, Huawei, Xiaomi, Tecno, Infinix — semua serba murah!</p>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <div class="d-flex flex-column justify-content-center align-items-center" style="height: 400px;">
+        <img src="https://p16-images-sign-sg.tokopedia-static.net/tos-alisg-i-aphluv4xwc-sg/img/VqbcmM/2024/7/12/0b2c59b5-419e-48d1-b3ca-de7d8265ba88.jpg~tplv-aphluv4xwc-white-pad-v1:1600:1600.jpeg?lk3s=0ccea506&x-expires=1776259530&x-signature=7kK7cuLsaE2nTHF%2FT82AoP6JtY4%3D&x-signature-webp=dq2PJjctA%2BPz7%2Fg2eYevgdIuV1o%3D" class="small-carousel-img" alt="Headphone hyperx">
+        <div class="mt-3 text-center">
+                <h2 class="fw-semibold">Headphone - Flash Sale Tiap Rabu - Jumat </h2>
+                <p class="mb-0">HyperX, Rexus, Fantech, Logitech, dbe — semua serba murah!</p>
+            </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+        <div class="d-flex flex-column justify-content-center align-items-center" style="height: 400px;">
+            <img src="https://i02.appmifile.com/291_operator_sg/12/11/2025/99305bd271c92b94905a840f85cc70ed.png" class="small-carousel-img" alt="Poco Pad X1">
+            <div class="mt-3 text-center">
+                <h2 class="fw-semibold">Tablet - Flash Sale Tiap Weekend</h2>
+                <p class="mb-0">Xiaomi, Samsung, Huawei, Apple - semua serba murah!</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="fw-bold mt-4 pt-2" style="font-size: 20px;">Produk</div>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <img src="https://id.store.asus.com/media/catalog/product/z/e/zenbook_s_14_ux5406sa_product_photo_3i_zumaia_gray_04_1.jpg" class="card-img-top card-img-small" alt="Asus Zenbook S">
+                <div class="badge text-bg-danger me-auto ms-3 mt-2" style="font-size: 12px;">Best Seller</div>
+                <div class="card-body pt-2">
+                    <h5 class="card-title fw-bold">Asus Zenbook S 14</h5>
+                    <p class="card-text text-secondary card-description-scroll">Laptop tipis premium untuk mobilitas tanpa batas, hadir dengan desain presisi yang elegan, menjadikannya pilihan terbaik untuk prestise yang luar biasa dan performa AI kelas atas.</p>
+                    <p class="card-text text-primary fw-bold">Rp. 21.999.000</p>
+                    <button class="btn btn-primary w-100" onclick="showToast()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <img src="https://p16-images-sign-sg.tokopedia-static.net/tos-alisg-i-aphluv4xwc-sg/img/VqbcmM/2024/9/13/cbc20954-876b-4345-b970-fb853f49c644.jpg~tplv-aphluv4xwc-white-pad-v1:1600:1600.jpeg?lk3s=0ccea506&x-expires=1776261602&x-signature=rkFzZxCg7XY8ezwB0KCxDCbTlOg%3D&x-signature-webp=pK7gc9j7ED1j4WQ0iCPCuzQTvuY%3D" class="card-img-top card-img-small" alt="Logitech G Pro X Superlight 2">
+                <div class="badge text-bg-warning me-auto ms-3 mt-2" style="font-size: 12px;">Almost Sold Out</div>
+                <div class="card-body pt-2">
+                    <h5 class="card-title fw-bold">Logitech G Pro X Superlight 2</h5>
+                    <p class="card-text text-secondary card-description-scroll">PRO X 2 LIGHTSPEED Wireless Gaming Headset didesain melalui kolaborasi dengan pemain terbaik di dunia. Dan, kini, tersedia untuk semuanya. Bawa game-mu ke level berikutnya dengan teknologi kelas pro yang sudah terbukti, headset yang lebih ringan, dan lebih nyaman.</p>
+                    <p class="card-text text-primary fw-bold">Rp. 3.589.000</p>
+                    <button class="btn btn-primary w-100" onclick="showToast()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mx-auto ">
+            <div class="card">
+                <img src="https://ibox.co.id/_next/image?url=https%3A%2F%2Fcdnpro.eraspace.com%2Fmedia%2Fcatalog%2Fproduct%2Fa%2Fp%2Fapple_ipad_pro_11_inci_m5_wi-fi_space_black_1_1.webp&w=1920&q=45" alt="Ipad Pro 11 M5" class="card-img-top card-img-small">
+                <div class="badge text-bg-success me-auto ms-3 mt-2" style="font-size: 12px;">New</div>
+                <div class="card-body pt-2">
+                    <h5 class="card-title fw-bold">Ipad Pro 11 M5</h5>
+                    <p class="card-text text-secondary card-description-scroll">iPad Pro, didukung chip Apple M5, menghadirkan performa mengagumkan untuk produktivitas mudah dan alur kerja AI canggih. Dengan layar Ultra Retina XDR yang memukau, Wi-Fi 7 dan Seluler 5G super cepat, Neural Accelerators untuk beban kerja AI, dan iPadOS yang didesain ulang, tak ada batasan untuk apa yang dapat Anda lakukan dengan iPad Pro.</p>
+                    <p class="card-text text-primary fw-bold">Rp. 20.499.000</p>
+                    <button class="btn btn-primary w-100" onclick="showToast()">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="faq"><div class="fw-bold mt-4 pt-2" style="font-size: 20px;">FAQ</div></a>
+<div class="container mt-4">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        Berapa lama estimasi pengiriman?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        Pengiriman akan dilakukan dalam waktu 1-2 hari kerja. Pengiriman luar kota 3-5 hari kerja tergantung lokasi. Kami menggunakan kurir terpercaya seperti JNE, JNT, dan Sicepat.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Apakah produk yang dijual bergaransi resmi?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        Iya, semua produk kami memiliki garansi resmi. Laptop dan smartphone mendapatkan garansi 1 tahun, sementara aksesori 6 bulan.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        Bagaimana cara melakukan retur produk?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        Retur dapat dilakukan dalam 7 hari setelah barang diterima. Hubungi customer service kami melalui WhatsApp untuk proses retur. Kami akan memberikan instruksi lengkap untuk mengembalikan barang.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    </section>
+    <section class="container mt-5 mb-5">
+    <h2 class="fw-bold mb-3 box">About TechStore</h2>
+    <p>TechStore adalah toko penjualan online terpercaya yang menghadirkan produk elektronik berkualitas dengan harga kompetitif. Berdiri sejak 2019, kami telah melayani jutaan pelanggan di seluruh Indonesia.</p>
+    <p class="mb-4">2572013 - Kenneth Ansell</p>
+</section>
+<footer class="text-bg-dark text-center py-4">
+    <p>&copy; Techstore | 2572013 - Kenneth Ansell</p>
+</footer>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+  <div id="notifToast" class="toast align-items-center text-bg-success border-0" role="alert"
+       aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Produk berhasil ditambahkan ke keranjang!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
