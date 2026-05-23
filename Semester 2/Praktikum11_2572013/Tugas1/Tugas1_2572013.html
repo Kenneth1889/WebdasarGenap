@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOI</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            background-color: #f4f6f8; 
+            margin: 0; 
+        }
+        .login-container { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 1px 2px black; 
+            width: 300px; text-align: left; 
+        }
+        .login-container h2 { 
+            margin-top: 0; 
+        }
+        .login-container h3{
+            margin-bottom: 0;
+        }
+        .login-container p{
+            font-size: 0.9em; 
+            color: #666;
+        }
+        input { 
+            width: 90%; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        button { 
+            width: 100%; 
+            padding: 10px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            margin-top: 10px; 
+        }
+        button:hover { 
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Catatan Harian</h2>
+        <p>Masuk untuk mulai mencatat</p>
+        <h3>Nama Pengguna</h3>
+        <input type="text" id="inputEmail" placeholder="Contoh: Budi">
+        <h3>Pin(4 Digit)</h3>
+        <input type="password" id="inputPassword" placeholder="Masukan PIN">
+        <button id="btnLogin">Masuk</button>
+        <p>Demo: nama <strong>Budi</strong>, PIN <strong>1234</strong></p>
+        
+        <script>
+        $(document).ready(function() {
+            // Catatan: JavaScript membedakan huruf besar dan kecil (case-sensitive)
+            // Pastikan Anda mengetik 'Budi' dengan 'B' besar saat menguji login
+            var CORRECT_NAME = 'Budi';
+            var CORRECT_PASSWORD = '1234';
+            var USERNAME = 'Budi';
+
+            $('#btnLogin').click(function() {
+                var name = $('#inputEmail').val();
+                var password = $('#inputPassword').val();
+
+                if (name === CORRECT_NAME && password === CORRECT_PASSWORD) {
+                    localStorage.setItem('username', USERNAME);
+                    window.location.href = 'dashboard.html';
+                } 
+            });
+        });
+        </script>
+    </div>
+</body>
+</html>

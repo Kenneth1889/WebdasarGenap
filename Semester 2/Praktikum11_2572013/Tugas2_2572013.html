@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList - 2572013</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      body {
+        padding: 30px;
+      }
+      .container {
+        max-width: 500px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px lightgrey;
+        margin: auto;
+      }
+      .input-group {
+        margin-bottom: 5px;
+      }
+      input {
+        width: 70%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        padding: 6px 12px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 4px;
+      }
+      #btnTambah {
+        background: #28a745;
+        padding: 8px 12px;
+      }
+      .danger {
+        color: white;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px 20px;
+        background: #fff3cd;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #e9ecef;
+      }
+
+      .action-btns button {
+        margin-left: 5px;
+      }
+      .btn-done {
+        background-color: #007bff;
+      }
+      .btn-edit,
+      .btn-submit {
+        background-color: #ffff00;
+        color: black;
+      }
+      .btn-delete {
+        background-color: #dc3545;
+      }
+
+      h3 {
+        margin-top: 30px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+      }
+      footer {
+        padding: 20px;
+        text-align: center;
+      }
+      .tercoret {
+        text-decoration: line-through;
+        color: #888;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>My To Do List</h2>
+
+      <div class="input-group">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Tambah tugas..." maxlength="20"
+        />
+        <button id="btnTambah">Tambah</button>
+      </div>
+
+      <h3>Belum Selesai</h3>
+      <ul id="taskList"></ul>
+
+      <h3>Sudah Selesai (Riwayat)</h3>
+      <table id="completedTable">
+        <thead>
+          <tr>
+            <th>Nama Tugas</th>
+            <th style="width: 100px">Aksi</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <footer>
+      <strong
+        >&copy; 2026 2572013 - Kenneth Ansell Hansjaya. All rights reserved.</strong>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+            $("#btnTambah").click(function () {
+            let taskText = $("#taskInput").val().trim();
+
+          if (taskText === "") {
+            alert("Tugas tidak boleh kosong!");
+          } else {
+            let li = $("<li>").html(`
+                    <span class="task-text">${taskText}</span>
+                    <div class="action-btns">
+                        <button class="btn-done">Selesai</button>
+                        <button class="btn-edit">Edit</button>
+                    </div>
+                `);
+            $("#taskList").append(li);
+            $("#taskInput").val(""); 
+          }
+        });
+        // Jika ditambah memakai enter di tombol tambah
+        $('#taskInput').keypress(function(event) {
+            if (event.which === 13) { 
+                event.preventDefault(); 
+                $('#btnTambah').click(); 
+            }
+        });
+        $("#taskList").on("click", ".btn-edit", function () {
+          let li = $(this).closest("li");
+          let span = li.find(".task-text");
+          let currentText = span.text();
+          let input = $("<input>")
+            .attr("type", "text")
+            .val(currentText)
+            .addClass("edit-input");
+          span.replaceWith(input);
+
+          li.find(".btn-done").hide();
+
+          $(this).removeClass("btn-edit").addClass("btn-submit").text("Simpan");
+        });
+
+        $("#taskList").on("click", ".btn-submit", function () {
+          let li = $(this).closest("li");
+          let input = li.find(".edit-input");
+          let newText = input.val().trim();
+
+          if (newText === "") {
+            alert("Tugas tidak boleh kosong!");
+            return;
+          }
+
+          let span = $("<span>").addClass("task-text").text(newText);
+          input.replaceWith(span);
+          
+          li.find(".btn-done").show();
+          
+          $(this).removeClass("btn-submit").addClass("btn-edit").text("Edit");
+        });
+
+        $("#taskList").on("click", ".btn-done", function () {
+          let li = $(this).closest("li");
+          let taskText = li.find(".task-text").text();         
+          li.remove();
+          let tr = $("<tr>").html(`
+                <td><span class="tercoret">${taskText}</span></td>
+                <td><button class="btn-delete danger">Hapus</button></td>
+            `);
+          $("#completedTable tbody").append(tr);
+        });
+
+        $("#completedTable").on("click", ".btn-delete", function () {
+          $(this).closest("tr").remove();
+        });
+      });
+    </script>
+  </body>
+</html>
